@@ -24,10 +24,11 @@ class SignUpPage : AppCompatActivity() {
         for (i in 1985 until 2002) {
             sign_up_age.add(i)
         }
-        age_spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sign_up_age)
+        age_spinner.adapter =
+            ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sign_up_age)
 //        val db = FirebaseFirestore.getInstance()
         signup_button.setOnClickListener {
-//            val user = User_data( sign_up_email.text.toString(), sign_up_password.text.toString())
+            //            val user = User_data( sign_up_email.text.toString(), sign_up_password.text.toString())
             createEmail()
 //            db.collection("Users").document(sign_up_email.text.toString()).set(user)
         }
@@ -36,7 +37,7 @@ class SignUpPage : AppCompatActivity() {
 
     fun createEmail() {
         val db = FirebaseFirestore.getInstance()
-        val user = User_data( sign_up_email.text.toString(), sign_up_password.text.toString())
+        val user = User_data(sign_up_email.text.toString(), sign_up_password.text.toString())
         firebaseAuth!!.createUserWithEmailAndPassword(
 //            signUpEmail, signUpPassword
             sign_up_email.text.toString(),
@@ -45,7 +46,8 @@ class SignUpPage : AppCompatActivity() {
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Authentication success.", Toast.LENGTH_SHORT).show()
-                    db.collection("Users").document(FirebaseAuth.getInstance().currentUser!!.uid).set(user)
+                    db.collection("Users").document(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .set(user)
 //                    db.collection("Users").document(FirebaseAuth.getInstance().currentUser!!.uid).set(user)
                     val intent = Intent(this, MainPage::class.java)
                     startActivity(intent)

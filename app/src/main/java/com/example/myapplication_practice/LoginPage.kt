@@ -23,7 +23,6 @@ class LoginPage : AppCompatActivity() {
                 loginEmail()
             val intent = Intent(this@LoginPage, MainPage::class.java)
             startActivity(intent)
-            Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
         }
         sign_up_button.setOnClickListener {
             val intent = Intent(this@LoginPage, SignUpPage::class.java)
