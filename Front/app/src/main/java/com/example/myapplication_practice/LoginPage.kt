@@ -20,10 +20,9 @@ class LoginPage : AppCompatActivity() {
         setContentView(R.layout.activity_login_page)
         firebaseAuth = FirebaseAuth.getInstance()
         log_in_button.setOnClickListener {
-                loginEmail()
+            loginEmail()
             val intent = Intent(this@LoginPage, MainPage::class.java)
             startActivity(intent)
-            Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
         }
         sign_up_button.setOnClickListener {
             val intent = Intent(this@LoginPage, SignUpPage::class.java)

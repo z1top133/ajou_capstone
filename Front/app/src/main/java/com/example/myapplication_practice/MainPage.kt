@@ -25,7 +25,7 @@ class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
-
+        FirebaseAuth.getInstance().signOut()
         val travelList = ArrayList<Travel>()
         for (i in 0 until 10) {
             travelList.add(Travel(R.drawable.italy, "Italy" + i))
@@ -118,6 +118,7 @@ class RecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.travelName.setText(itemList.get(position).name)
         holder.travelPhoto.setImageResource(itemList.get(position).Photo)
+
     }
 }
 
