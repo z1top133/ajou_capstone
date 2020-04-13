@@ -23,7 +23,6 @@
                 android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:background="@drawable/imagebackground"
                 android:scaleType="centerCrop"
                 android:src="@drawable/italy" />
 
