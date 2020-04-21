@@ -4,35 +4,76 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_chattingroom_list__page.*
 import kotlinx.android.synthetic.main.activity_main_page.*
+import kotlinx.android.synthetic.main.activity_main_page.tab_layout
+import kotlinx.android.synthetic.main.activity_main_page.view_pager
 
 val RC_SIGN_IN = 9001;
 
-
+var firebaseAuth: FirebaseAuth? = null
 class MainPage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
-        FirebaseAuth.getInstance().signOut()
-        val travelList = ArrayList<Travel>()
-        for (i in 0 until 10) {
-            travelList.add(Travel(R.drawable.italy, "Italy" + i))
+        if(firebaseAuth?.currentUser?.uid == null){
+            FirebaseAuth.getInstance().signOut()
         }
-        val adapter = RecyclerViewAdapter(travelList, LayoutInflater.from(this@MainPage))
-        travel_container.adapter = adapter
-        travel_container.layoutManager = LinearLayoutManager(this@MainPage)
+//        FirebaseAuth.getInstance().signOut()
+//        val travelList = ArrayList<Travel>()
+//        for (i in 0 until 10) {
+//            travelList.add(Travel(R.drawable.italy, "Italy" + i))
+//        }
+//        val adapter = RecyclerViewAdapter(travelList, LayoutInflater.from(this@MainPage))
+//        travel_container.adapter = adapter
+//        travel_container.layoutManager = LinearLayoutManager(this@MainPage)//recyclerView
+        tab_layout.addTab(tab_layout.newTab().setText("ONE"))
+        tab_layout.addTab(tab_layout.newTab().setText("TWO"))
+        tab_layout.addTab(tab_layout.newTab().setText("THREE"))
+        val tabs = tab_layout.getChildAt(0) as ViewGroup
+
+        for(i in 0 until tabs.childCount){
+            val tab = tabs.getChildAt(i)
+            val layoutParams = tab.layoutParams as LinearLayout.LayoutParams
+            layoutParams.marginEnd = 12.dp()
+            layoutParams.marginStart = 12.dp()
+            layoutParams.width = 10.dp()
+            tab.layoutParams = layoutParams
+            tab_layout.requestLayout()
+        }
+
+        val adapter = FragmentPagerAdapter(supportFragmentManager,3)
+        view_pager.adapter = adapter
+        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
+
+        tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                view_pager.currentItem = tab!!.position
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                view_pager.currentItem = tab!!.position
+            }
+        })
+        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
 
         person.setOnClickListener {
             //            login()
@@ -48,6 +89,10 @@ class MainPage : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             Toast.makeText(this, "Log_out success.", Toast.LENGTH_SHORT).show()
         }
+    }
+    fun Int.dp(): Int{
+        val metrics = resources.displayMetrics
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), metrics).toInt()
     }
 
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -91,7 +136,7 @@ class MainPage : AppCompatActivity() {
 }
 
 
-class RecyclerViewAdapter(
+open class RecyclerViewAdapter(
     val itemList: ArrayList<Travel>,
     val inflater: LayoutInflater
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
