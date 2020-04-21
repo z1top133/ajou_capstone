@@ -13,7 +13,6 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_image_uploadtest.*
 import kotlinx.android.synthetic.main.activity_my_page.*
 import java.io.File
 import java.lang.Exception
@@ -22,7 +21,7 @@ class MyPage : AppCompatActivity() {
 
     var storage = FirebaseStorage.getInstance("gs://travle-with.appspot.com")
     val storageRef = storage.reference
-    val mountainsRef = storageRef.child("upload_image/profile")
+    val mountainsRef = storageRef.child("upload_image/"+ firebaseAuth?.currentUser?.uid)
     //    val user_profile_photo = storageRef.child("upload_image/profile")
 //    val localFile = File.createTempFile("images","jpg")
 //    val imageView = findViewById<ImageView>(R.id.profile_photo)

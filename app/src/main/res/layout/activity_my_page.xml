@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:cardCornerRadius="80dp"
-        app:cardElevation="0dp">
+        app:cardElevation="0dp"
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:id="@+id/profile_photo"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/person"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
@@ -49,5 +49,10 @@
         android:gravity="center"
         android:text="안녕하세요"
         android:textSize="30dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
 
 </LinearLayout>

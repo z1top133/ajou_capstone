@@ -58,6 +58,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/gender_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -66,6 +67,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/gender_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -110,6 +112,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
+                    android:id="@+id/travelStyle_Photo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -118,6 +121,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/travelStyle_Food"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -126,6 +130,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/travelStyle_View"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -149,83 +154,91 @@
                 android:orientation="horizontal">
 
                 <CheckBox
+                    android:id="@+id/korea"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="10dp"
-                    android:text="서울"
+                    android:text="국내"
                     android:textSize="20dp" />
 
                 <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="수도권"
-                    android:textSize="20dp" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="강원"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:text="충청"
-                    android:textSize="20dp" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="전라"
-                    android:textSize="20dp" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="경상"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:text="제주"
-                    android:textSize="20dp" />
-
-                <CheckBox
+                    android:id="@+id/abroad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:text="해외"
                     android:textSize="20dp" />
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/gangwon"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="강원"-->
+<!--                    android:textSize="20dp" />-->
+
             </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/chungcheong"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="30dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="충청"-->
+<!--                    android:textSize="20dp" />-->
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/jeolla"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="전라"-->
+<!--                    android:textSize="20dp" />-->
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/gyeongsang"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="경상"-->
+<!--                    android:textSize="20dp" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/jeju"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="30dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="제주"-->
+<!--                    android:textSize="20dp" />-->
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/abroad"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="해외"-->
+<!--                    android:textSize="20dp" />-->
+<!--            </LinearLayout>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -241,6 +254,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
+                    android:id="@+id/english"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -249,6 +263,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/chinese"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -257,6 +272,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/japanese"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -272,6 +288,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
+                    android:id="@+id/french"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -280,6 +297,7 @@
                     android:textSize="20dp" />
 
                 <CheckBox
+                    android:id="@+id/german"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

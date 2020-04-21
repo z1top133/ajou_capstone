@@ -37,7 +37,26 @@ class SignUpPage : AppCompatActivity() {
 
     fun createEmail() {
         val db = FirebaseFirestore.getInstance()
-        val user = User_data(sign_up_email.text.toString(), sign_up_password.text.toString())
+        var gender: Int? = null
+        var age: String? = age_spinner.selectedItem.toString()
+
+        if (gender_male.isChecked == true && gender_female.isChecked == false) {
+            gender = 0
+        } else if (gender_male.isChecked == false && gender_female.isChecked == true) {
+            gender = 1
+        } else {
+            Toast.makeText(this, "Check gender please", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+        val user = User_data(
+            sign_up_email.text.toString(),
+            sign_up_password.text.toString(),
+            gender,
+            age,
+            travel_Style_information(),
+            travel_Spot_information(),
+            available_language_information()
+        )
         firebaseAuth!!.createUserWithEmailAndPassword(
 //            signUpEmail, signUpPassword
             sign_up_email.text.toString(),
@@ -57,9 +76,60 @@ class SignUpPage : AppCompatActivity() {
                 }
             }
     }
+
+    fun travel_Style_information(): String? {
+        var travel_Style: String = ""
+        if (travelStyle_Photo.isChecked) {
+            travel_Style = "photo"
+        }
+        if (travelStyle_Food.isChecked) {
+            travel_Style = travel_Style + "," + "food"
+        }
+        if (travelStyle_View.isChecked) {
+            travel_Style = travel_Style + "," + "view"
+        }
+        return travel_Style
+    }
+
+    fun travel_Spot_information(): String? {
+        var travel_Spot: String = ""
+        if (korea.isChecked) {
+            travel_Spot = "korea"
+        }
+        if (abroad.isChecked) {
+            travel_Spot = travel_Spot + "," + "abroad"
+        }
+        return travel_Spot
+    }
+
+    fun available_language_information(): String? {
+        var language: String = ""
+        if (english.isChecked) {
+            language = "english"
+        }
+        if (chinese.isChecked) {
+            language = language + ","+"chinese"
+        }
+        if (japanese.isChecked) {
+            language = language + ","+"japanese"
+        }
+        if (french.isChecked) {
+            language = language + ","+"french"
+        }
+        if (german.isChecked) {
+            language = language + ","+"german"
+        }
+        return language
+
+    }
 }
 
 data class User_data(
     val email: String? = null,
-    val password: String? = null
+    val password: String? = null,
+    var gender: Int? = null,
+    var age: String? = null,
+    var travel_Style: String? = null,
+    var travel_Spot: String? = null,
+    var available_language: String? = null
 )

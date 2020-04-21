@@ -14,13 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ImageUploadtest">
+        <activity android:name=".KoreaPage"></activity>
+        <activity android:name=".AbroadPage" />
+        <activity android:name=".PackagePage" >
 
         </activity>
+        <activity android:name=".Chattingroom_list_Page">
+
+        </activity>
+        <activity android:name=".ImageUploadtest" />
         <activity android:name=".MyPage" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".LoginPage" />
-        <activity android:name=".MainPage">
+        <activity android:name=".MainPage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

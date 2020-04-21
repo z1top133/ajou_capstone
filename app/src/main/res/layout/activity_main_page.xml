@@ -55,44 +55,63 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#BF050F42"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BF050F42">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/radius"
-            android:gravity="center"
-            android:text="패키지" />
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabBackground="@drawable/radius"
+                app:tabMinWidth="50dp"
+                app:tabIndicatorColor="#FFC107"
+                app:tabIndicatorFullWidth="false"
+                />
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/radius"
-            android:gravity="center"
-            android:text="국내" />
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/radius"
-            android:gravity="center"
-            android:text="해외" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+<!--        <Button-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:background="@drawable/radius"-->
+<!--            android:gravity="center"-->
+<!--            android:text="패키지" />-->
+
+<!--        <Button-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="40dp"-->
+<!--            android:layout_marginRight="40dp"-->
+<!--            android:background="@drawable/radius"-->
+<!--            android:gravity="center"-->
+<!--            android:text="국내" />-->
+<!--        <Button-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:background="@drawable/radius"-->
+<!--            android:gravity="center"-->
+<!--            android:text="해외" />-->
     </LinearLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_weight="5"
-        android:id="@+id/travel_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#BF050F42" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_weight="5"-->
+<!--        android:id="@+id/travel_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="#BF050F42" />-->
 
     <View
         android:layout_width="match_parent"
