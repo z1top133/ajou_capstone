@@ -42,9 +42,9 @@ class MainPage : AppCompatActivity() {
 //        val adapter = RecyclerViewAdapter(travelList, LayoutInflater.from(this@MainPage))
 //        travel_container.adapter = adapter
 //        travel_container.layoutManager = LinearLayoutManager(this@MainPage)//recyclerView
-        tab_layout.addTab(tab_layout.newTab().setText("ONE"))
-        tab_layout.addTab(tab_layout.newTab().setText("TWO"))
-        tab_layout.addTab(tab_layout.newTab().setText("THREE"))
+        tab_layout.addTab(tab_layout.newTab().setText("패키지"))
+        tab_layout.addTab(tab_layout.newTab().setText("국내"))
+        tab_layout.addTab(tab_layout.newTab().setText("해외"))
         val tabs = tab_layout.getChildAt(0) as ViewGroup
 
         for(i in 0 until tabs.childCount){
