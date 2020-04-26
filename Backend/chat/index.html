@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Socket.IO chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,10 +24,21 @@
     <script>
         $(function () {
           var socket = io();
+
+          socket.emit("login", { //server로 이름 전송
+             userid : "dudgh9661"
+          });
+
+          socket.on("login", (data)=>{ //서버로부터 login 이벤트를 받음
+            $('#messages').append($('<li>').text(data));
+          });
+
           $('form').submit(function(e){
             e.preventDefault(); // prevents page reloading
-            socket.emit('chat message', $('#m').val());
-            $('#m').val('');
+            
+            
+          socket.emit('chat message', $('#m').val());//'#m'을 전송
+            $('#m').val('');//m을 초기화
             return false;
           });
           socket.on('chat message', function(msg){
