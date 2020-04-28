@@ -33,6 +33,10 @@ class LoginPage : AppCompatActivity() {
             val intent = Intent(this@LoginPage, SignUpPage::class.java)
             startActivity(intent)
         }
+        find_password.setOnClickListener{
+            val intent = Intent(this@LoginPage, FindPage::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loginEmail(context: Context) {
